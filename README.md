@@ -7,3 +7,6 @@ p5.js is a JavaScript library for creative coding, with a focus on making coding
 [Check out the official docs here](https://p5js.org/reference/).
 
 
+
+
+https://docs.google.com/drawings/d/1Mb_htML73qqcWqMKuoW-o7gGNvSoTCHKLaHD-YxVQC4/edit?usp=sharing (plan for story)
