@@ -157,3 +157,19 @@ function showScreen5(){
   a1Button.pos = { x: -200, y: -200 };
   a2Button.pos = { x: -50, y: -50 };
 }
+
+
+/*
+STORYLINE:
+GENRE: HORROR
+NAME: ????
+One night, you are watching Netflix home alone in your upstairs bedroom when a loud noise wakes you up. (OPTION 1.1: Check out the noise, OPTION 1.2: Ignore it and keep watching your show)
+
+OPTION 1.1 & 3.1 PATH: You shine your phone's flashlight as you go downstairs, each floor creaking loudly. You double check the lock on your front door - it was open. You look around your living room, but nothing looks out of the ordinary. (OPTION 2.1: Stay downstairs for a little, OPTION 2.2: Go back up to your room.)
+
+OPTION 1.2 PATH: You continue watching your show, unbothered for ~15 minutes. All of a sudden, you hear more noises - louder. (OPTION 3.1: Check out the noise, OPTION 3.2: Lock your bedroom door & windows)
+
+OPTION 3.2 PATH: A little rattled, you lock your bedroom door and windows, and text your parents asking them when they'll be back. You feel a little cold, so you walk over to your closet to grab a sweater but, in the dark of your closet, you think you see a pair of glowing yellow eyes. (OPTION 4.1: Ignore it and go back into your bed with your show. OPTION 4.2: Turn on the lights)
+
+OPTION 4.1 PATH: You eventually fall asleep, with your show on play. The next morning, you wake up in a basement, chained to the floor. Shaking, you yell and scream until your voice goes hoarse. But there is nothing to be done - nobody will ever know what happened to you. THE END.
+*/
