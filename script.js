@@ -91,21 +91,21 @@ function startScreen(){
 
   // Add A1 button
   checkOutButton.pos = {x: width/2-50, y:height/2+100};
-  checkOutButton.w = 50;
+  checkOutButton.w = 75;
   checkOutButton.h = 50;
   checkOutButton.collider = 'k';
   checkOutButton.color = buttonColor;
-  checkOutButton.text = "Check out the noise"; 
+  checkOutButton.text = "Check out \nthe noise"; 
   checkOutButton.textSize = 15;
 
 
   // Add A2 button
-  ignoreButton.pos = {x: width/2+50, y:height/2+100};
-  ignoreButton.w = 50;
+  ignoreButton.pos = {x: width/2+75, y:height/2+100};
+  ignoreButton.w = 150;
   ignoreButton.h = 50;
   ignoreButton.collider = 'k';
   ignoreButton.color = buttonColor;
-  ignoreButton.text = "Ignore it & keep watching your show";
+  ignoreButton.text = "Ignore it & keep\n watching your show";
   ignoreButton.textSize = 15;
 }
 
@@ -117,21 +117,21 @@ function checkOut(){
   ignoreButton.pos = {x: -50, y: -50};
   // Add stayDown Button
   stayDownButton.pos = { x: width / 2 - 50, y: height / 2 + 100 };
-  stayDownButton.w = 50;
+  stayDownButton.w = 75;
   stayDownButton.h = 50;
   stayDownButton.collider = "k";
   stayDownButton.color = buttonColor;
-  stayDownButton.text = "Stay downstairs";
+  stayDownButton.text = "Stay \ndownstairs";
   stayDownButton.textSize = 15;
 
 
    // Add  Button
   yellowEyesButton.pos = { x: width / 2 + 50, y: height / 2 + 100 };
-  yellowEyesButton.w = 50;
+  yellowEyesButton.w = 100;
   yellowEyesButton.h = 50;
   yellowEyesButton.collider = "k";
   yellowEyesButton.color = buttonColor;
-  yellowEyesButton.text = "Go back up to your room";
+  yellowEyesButton.text = "Go back up \nto your room";
   yellowEyesButton.textSize = 15;
 
 }
