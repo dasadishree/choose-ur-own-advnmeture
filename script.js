@@ -4,6 +4,11 @@ let checkOutButton;
 let ignoreButton;
 let stayDownButton;
 let yellowEyesButton;
+let checkOut2Button;
+let lightsOnButton;
+let ignore2Button;
+let openDoorButton;
+let callParentsButton;
 let screen = 0;
 let bgColor = "black";
 let buttonColor = "white";
@@ -19,7 +24,7 @@ function setup() {
   background("black");
   fill(255)
   text(
-    "GAME NAME",
+    "HOME ALONE 1:\n A HORROR CHOICE STORY",
     width / 2,
     height / 2 - 100
   );
@@ -31,11 +36,30 @@ function setup() {
   checkOutButton = new Sprite();
   checkOutButton.y = -200;
   checkOutButton.x = -200;
+  
+  checkOut2Button = new Sprite();
+  checkOut2Button.y = -200;
+  checkOut2Button.x = -200;
 
+  lightsOnButton = new Sprite();
+  lightsOnButton.y = -200;
+  lightsOnButton.x = -200;
+
+  openDoorButton = new Sprite();
+    openDoorButton.y = -200;
+    openDoorButton.x = -200;
+
+  callParentsButton = new Sprite();
+    callParentsButton.y = -200;
+    callParentsButton.x = -200;
 
   ignoreButton = new Sprite();
   ignoreButton.x = -50;
   ignoreButton.y = -50;
+
+  ignore2Button = new Sprite();
+  ignore2Button.x = -50;
+  ignore2Button.y = -50;
 
   stayDownButton = new Sprite();
   stayDownButton.x = -100;
@@ -44,6 +68,10 @@ function setup() {
   yellowEyesButton = new Sprite();
   yellowEyesButton.x = -150;
   yellowEyesButton.y = -150;
+
+  lockRoomButton = new Sprite();
+  lockRoomButton.x = -150;
+  lockRoomButton.y = -150;
 }
 
 /* DRAW LOOP REPEATS */
@@ -71,13 +99,35 @@ function draw() {
       screen = "ignore";
       ignore();
     }
-  } else if (screen =="checkOut") {
+  } 
+  else if (screen =="checkOut") {
     if (stayDownButton.mouse.presses()) {
       stayDown();
       screen ="stayDown";
-    } else if (yellowEyesButton.mouse.presses()) {
+    } 
+    else if (yellowEyesButton.mouse.presses()) {
       screen = "yellowEyes";
       yellowEyes();
+    }
+  }
+  else if(screen =="ignore") {
+    if(checkOut2Button.mouse.presses()) {
+      screen = "checkOut";
+      checkOut();
+    }
+    else if(lockRoomButton.mouse.presses()) {
+      screen = "yellowEyes";
+      yellowEyes();
+    }
+  }
+  else if(screen == "yellowEyes") {
+    if(lightsOnButton.mouse.presses()) {
+      scene = "evilGrandma";
+      evilGrandma();   
+    }
+    else if(ignore2Button.mouse.presses()) {
+      scene = "kidnapped";
+      kidnapped();
     }
   }
   }
@@ -138,47 +188,102 @@ function checkOut(){
 
 function stayDown(){
   background(bgColor);
-  text("Ending 1", width/2, height/2-100);
+  text("You stay downstairs, sitting on your living room couch\n reading a book. Nothing happens for a bit,\n but then you hear noises, and out of the corner of your eyes,\n you see movement. 'Hello? Who's there?' you call out. \nNobody answers. You text your parents asking\n them when they'll be back - and after ~15 minutes,\n they answer that they're home and you \nhear a car roll into the driveway.", width/2, height/2-100);
   stayDownButton.pos = { x: -100, y: -100 };
   yellowEyesButton.pos = { x: -150, y: -150 };
+
+  // Add stayDown Button
+  openDoorButton.pos = { x: width / 2 -70, y: height / 2 + 120 };
+    openDoorButton.w = 100;
+    openDoorButton.h = 50;
+    openDoorButton.collider = "k";
+    openDoorButton.color = buttonColor;
+    openDoorButton.text = "Open the door\n for them";
+    openDoorButton.textSize = 15;
+
+
+   // Add  Button
+    callParentsButton.pos = { x: width / 2 + 50, y: height / 2 + 120 };
+      callParentsButton.w = 100;
+      callParentsButton.h = 50;
+      callParentsButton.collider = "k";
+      callParentsButton.color = buttonColor;
+      callParentsButton.text = "Call your\n parents";
+      callParentsButton.textSize = 15;
+
+  
 }
 
 function yellowEyes() {
  background(bgColor);
- text("Ending 2", width / 2, height / 2 - 100);
+ text(" A little rattled, you lock your bedroom door and windows,\n and text your parents asking them\n when they'll be back. You feel a little cold, so you walk\n over to your closet to grab a sweater but, in the\n dark of your closet, you think \nyou see a pair of glowing yellow eyes.", width / 2, height / 2 - 100);
+  
   stayDownButton.pos = { x: -100, y: -100 };
   yellowEyesButton.pos = { x: -150, y: -150 };
+  checkOut2Button.pos = { x: -100, y: -100 };
+  lockRoomButton.pos = { x: -150, y: -150 };
+
+  lightsOnButton.pos = { x: width / 2 - 50, y: height / 2 + 100 };
+  lightsOnButton.w = 75;
+  lightsOnButton.h = 50;
+  lightsOnButton.collider = "k";
+  lightsOnButton.color = buttonColor;
+  lightsOnButton.text = "Turn on \n the lights";
+  lightsOnButton.textSize = 15;
+
+  // Add  Button
+  ignore2Button.pos = { x: width / 2 + 50, y: height / 2 + 100 };
+    ignore2Button.w = 100;
+    ignore2Button.h = 50;
+    ignore2Button.collider = "k";
+  ignore2Button.color = buttonColor;
+    ignore2Button.text = "Go back up \nto your room";
+    ignore2Button.textSize = 15;
 }
 
 function ignore(){
   background(bgColor);
-  text("Ending 3", width/2, height/2-100);
+  text("You continue watching your show, \nunbothered for ~15 minutes. \nAll of a sudden, you hear more noises - louder.", width/2, height/2-100);
 
-  checkOutButton.pos = { x: -200, y: -200 };
-  ignoreButton.pos = { x: -50, y: -50 };
+   checkOutButton.pos = {x: -200, y: -200};
+   ignoreButton.pos = {x: -200, y: -200};
+  
+  // Add stayDown Button
+  checkOut2Button.pos = { x: width / 2 - 50, y: height / 2 + 100 };
+  checkOut2Button.w = 75;
+  checkOut2Button.h = 50;
+  checkOut2Button.collider = "k";
+  checkOut2Button.color = buttonColor;
+  checkOut2Button.text = "Check out \n the noise";
+  checkOut2Button.textSize = 15;
+
+  // Add  Button
+  lockRoomButton.pos = { x: width / 2 + 75, y: height / 2 + 100 };
+    lockRoomButton.w = 135;
+    lockRoomButton.h = 50;
+    lockRoomButton.collider = "k";
+    lockRoomButton.color = buttonColor;
+    lockRoomButton.text = "Lock your bedroom\ndoor and windows";
+    lockRoomButton.textSize = 15;
 }
 
+function evilGrandma() {
+  background(bgColor);
+  lightsOnButton.pos = { x: -250, y: -500 };
+  ignore2Button.pos = {x:-250, y:-500}
+  text("You turn on the lights, and look back at the 'eyes'\n but it turns out it was just a light \nfrom your brother's old toys. You flop back into bed, \nand the noises seem to stop. You decide it was \nprobably just you being paranoid. At around midnight, \nyou get a knock on your door. You open the door,\n expecting your parents. But it's not them - \nit's your grandma. Tears fly down her face as she\n says, 'It wasn't my fault, I swear,\n I didn't do anything!'. Your parents were eating dinner\n with your grandma when they dropped dead. \nLater it was found that the reason for death was poisoning\n. Your grandma is your legal guardian for the rest of your life \n- and you will never find out what really\n happened that night. THE END. (you survive)" ,width/2, 40);
+}
 
-/*
-STORYLINE:
-GENRE: HORROR
-NAME: ????
-One night, you are watching Netflix home alone in your upstairs bedroom when a loud noise wakes you up. (OPTION 1.1: Check out the noise, OPTION 1.2: Ignore it and keep watching your show)
+function kidnapped() {
+  background(bgColor);
+  lightsOnButton.pos = { x: -250, y: -500 };
+  ignore2Button.pos = {x:-250, y:-500}  
+    text("You eventually fall asleep, with your show on play.\n The next morning, you wake up in a basement,\n chained to the floor. Shaking, you yell and scream\n until your voice goes hoarse. But there is nothing to be done\n - nobody will ever know what happened to you.\n THE END. (you die)" ,width/2, height/2-40);
+}
 
-OPTION 1.1 & 3.1 PATH: You shine your phone's flashlight as you go downstairs, each floor creaking loudly. You double check the lock on your front door - it was open. You look around your living room, but nothing looks out of the ordinary. (OPTION 2.1: Stay downstairs for a little, OPTION 2.2: Go back up to your room.)
-
-OPTION 2.1: You stay downstairs, sitting on your living room couch reading a book. Nothing happens for a bit, but then you hear noises, and out of the corner of your eyes, you see movement. "Hello? Who's there?" you call out. Nobody answers. You text your parents asking them when they'll be back - and after ~15 minutes, they answer that they're home and you hear a car roll into the driveway.
-(OPTION 5.1: Open the door for them, OPTION 5.2: Call them)
-
-OPTION 5.1: You open the door, and they walk in. "Mom, Dad, I was so scared, I kept hearing weird noises, ......" you ramble on and on. They turn around, and you gasp as you look at their face - blood seeping out of their eyeballs and mouth. You scream and run away, but its too late. You're next. THE END.
-
-OPTION 5.2: You call your parents, but there is no answer. That's weird, they just texted you. You call your grandma (whose house your parents were at). Your grandma say that they never came over. Starting to get really freaked out, you turn off all the lights and close the doors and windows. You text your parents number that you went to a friend's house to stay over. The next morning, you get a phone call - saying your parents died in the night. You survived, but you'll never know who you were texting then or the reason for their death. You will be haunted and traumatized and paranoide forever. THE END.
-
-OPTION 1.2 PATH: You continue watching your show, unbothered for ~15 minutes. All of a sudden, you hear more noises - louder. (OPTION 3.1: Check out the noise, OPTION 3.2: Lock your bedroom door & windows)
-
-OPTION 2.2 & 3.2 PATH: A little rattled, you lock your bedroom door and windows, and text your parents asking them when they'll be back. You feel a little cold, so you walk over to your closet to grab a sweater but, in the dark of your closet, you think you see a pair of glowing yellow eyes. (OPTION 4.1: Ignore it and go back into your bed with your show. OPTION 4.2: Turn on the lights)
-
-OPTION 4.1 PATH: You eventually fall asleep, with your show on play. The next morning, you wake up in a basement, chained to the floor. Shaking, you yell and scream until your voice goes hoarse. But there is nothing to be done - nobody will ever know what happened to you. THE END. (you die)
-
-OPTION 4.2: You turn on the lights, and look back at the "eyes" but it turns out it was just a light from your brother's old toys. You flop back into bed, and the noises seem to stop. You decide it was probably just you being paranoid. At around midnight, you get a knock on your door. You open the door, expecting your parents. But it's not them - it's your grandma. Tears fly down her face as she says, "It wasn't my fault, I swear, I didn't do anything!!". Your parents were eating dinner with your grandma when they dropped dead. Later it was found that the reason for death was posioning. Your grandma is your legal guardian for the rest of your life - and you will never find out what really happened that night. THE END. (you survive)
-*/
+function bloodyEyes() {
+  background(bgColor);
+  openDoorButton.pos = { x: -250, y: -500 };
+  callParentsButton.pos = {x:-250, y:-500}  
+    text("You eventually fall asleep, with your show on play.\n The next morning, you wake up in a basement,\n chained to the floor. Shaking, you yell and scream\n until your voice goes hoarse. But there is nothing to be done\n - nobody will ever know what happened to you.\n THE END. (you die)" ,width/2, height/2-40);
+}
