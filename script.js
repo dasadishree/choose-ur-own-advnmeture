@@ -12,7 +12,7 @@ let callParentsButton;
 let lockRoomButton;
 let screen = 0;
 let bgColor = "black";
-let stairs, bed, sofa, windowImg, chained;
+let stairs, bed, blood;
 let buttonColor = "white";
 
 
@@ -27,12 +27,10 @@ function setup() {
   //setting up backgrounds
   stairs = loadImage('stairs.png');
   bed = loadImage('bed.png');
-  sofa = loadImage('sofa.png')
-  windowImg = loadImage('window.png')
-  chained = loadImage('chained.png')
-
+  blood = loadImage('blood.png')
+  
   // Set up the home screen
-  background("black");
+  background(0);
   fill(255,0,0)
   text("HOME ALONE 1:\n A HORROR CHOICE STORY",width / 2,height / 2 - 100);
 
@@ -152,7 +150,7 @@ function draw() {
 
 /* FUNCTIONS TO DISPLAY SCREENS */
 function startScreen(){
-  background(bgColor);
+  background(blood);
   fill(255,0, 0);
   text("One night, you are watching Netflix home alone\n in your upstairs bedroom when a loud noise wakes you up.", width/2, height/2-100);
   //remove enter button
@@ -209,7 +207,7 @@ function checkOut(){
 
 }
 function stayDown(){
-  background(sofa);
+  background(blood);
   text("You stay downstairs, sitting on your living room couch\n reading a book. Nothing happens for a bit,\n but then you hear noises, and out of the corner of your eyes,\n you see movement. 'Hello? Who's there?' you call out. \nNobody answers. You text your parents asking\n them when they'll be back - and after ~15 minutes,\n they answer that they're home and you \nhear a car roll into the driveway.", width/2, height/2-100);
 
   //remove past buttons
@@ -236,7 +234,7 @@ function stayDown(){
       callParentsButton.textSize = 15; 
 }
 function yellowEyes() {
- background(windowImg);
+ background(blood);
  text(" A little rattled, you lock your bedroom door and windows,\n and text your parents asking them\n when they'll be back. You feel a little cold, so you walk\n over to your closet to grab a sweater but, in the\n dark of your closet, you think \nyou see a pair of glowing yellow eyes.", width / 2, height / 2 - 100);
 
   //remove past buttons
@@ -291,26 +289,26 @@ function ignore(){
 
 //endings
 function evilGrandma() {
-  background(bgColor);
+  background(blood);
   lightsOnButton.pos = { x: -250, y: -500 };
   ignore2Button.pos = {x:-250, y:-500}
   text("You turn on the lights, and look back at the 'eyes'\n but it turns out it was just a light \nfrom your brother's old toys. You flop back into bed, \nand the noises seem to stop. You decide it was \nprobably just you being paranoid. At around midnight, \nyou get a knock on your door. You open the door,\n expecting your parents. But it's not them - \nit's your grandma. Tears fly down her face as she\n says, 'It wasn't my fault, I swear,\n I didn't do anything!'. Your parents were eating dinner\n with your grandma when they dropped dead. \nLater it was found that the reason for death was poisoning\n. Your grandma is your legal guardian for the rest of your life \n- and you will never find out what really\n happened that night. THE END. (you survive)" ,width/2, 40);
 }
 function kidnapped() {
-  background(chained);
+  background(blood);
   lightsOnButton.pos = { x: -250, y: -500 };
   ignore2Button.pos = {x:-250, y:-500}  
     text("You eventually fall asleep, with your show on play.\n The next morning, you wake up in a basement,\n chained to the floor. Shaking, you yell and scream\n until your voice goes hoarse. But there is nothing to be done\n - nobody will ever know what happened to you.\n THE END. (you die)" ,width/2, height/2-40);
   
 }
 function bloodyEyes() {
-  background(bgColor);
+  background(blood);
   openDoorButton.pos = { x: -250, y: -500 };
   callParentsButton.pos = {x:-250, y:-500}  
     text("You open the door, and they walk in.\n 'Mom, Dad, I was so scared, I kept hearing weird noises, ......'\n you ramble on and on. They turn around, and you gasp\nas you look at their face - blood seeping out of their\n eyeballs and mouth. You scream and run away,\n but it's too late. You're next.\nTHE END. (you die)" ,width/2, height/2-40);
 }
 function friendEscape() {
-  background(bgColor);
+  background(blood);
   openDoorButton.pos = { x: -250, y: -500 };
   callParentsButton.pos = {x:-250, y:-500}  
    text("You call your parents, but there is no answer.\n That's weird, they just texted you. You call your grandma\n (whose house your parents were at). Your grandma say\n that they never came over. Starting to get really freaked out,\n you turn off all the lights and close the doors and windows.\n You text your parents number that you went to a friend's house\n to stay over.The next morning, you get a phone call -\n saying your parents died in the night. You survived, \nbut you'll never know who you were texting then \nor the reason for their death. THE END. (you survive)" ,width/2, height/2-100);
