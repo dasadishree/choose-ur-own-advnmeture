@@ -12,6 +12,7 @@ let callParentsButton;
 let lockRoomButton;
 let screen = 0;
 let bgColor = "black";
+let stairs;
 let buttonColor = "white";
 
 
@@ -22,9 +23,13 @@ function setup() {
   textSize(20);
   noStroke();
 
+  //setting up backgrounds
+  stairs = loadImage('stairs.png');
+
+
   // Set up the home screen
   background("black");
-  fill(255)
+  fill(255,0,0)
   text("HOME ALONE 1:\n A HORROR CHOICE STORY",width / 2,height / 2 - 100);
 
   // Create all the buttons
@@ -144,6 +149,7 @@ function draw() {
 /* FUNCTIONS TO DISPLAY SCREENS */
 function startScreen(){
   background(bgColor);
+  fill(255,0, 0);
   text("One night, you are watching Netflix home alone\n in your upstairs bedroom when a loud noise wakes you up.", width/2, height/2-100);
   //remove enter button
   enterButton.pos = {x:-100, y:-100};
@@ -168,7 +174,7 @@ function startScreen(){
   ignoreButton.textSize = 15;
 }
 function checkOut(){
-  background(bgColor);
+  background(stairs);
   text("You shine your phone's flashlight as you go\n downstairs, each floor creaking loudly. You double\n check the lock on your front door - it was open. You\n look around your living room, but nothing looks out of\n the ordinary.", width/2, height/2-100);
 
   //remove previous buttons
