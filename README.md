@@ -1,12 +1,6 @@
-# p5.js
+A horror choose your adventure game made by Adishree Das
 
-This is the Template Repl for p5.js.
-
-p5.js is a JavaScript library for creative coding, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! p5.js is free and open-source because we believe software, and the tools to learn it, should be accessible to everyone.
-
-[Check out the official docs here](https://p5js.org/reference/).
-
-
+Possibly gonna make future parts
 
 
 https://docs.google.com/drawings/d/1Mb_htML73qqcWqMKuoW-o7gGNvSoTCHKLaHD-YxVQC4/edit?usp=sharing (plan for story)
